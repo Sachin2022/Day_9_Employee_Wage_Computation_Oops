@@ -9,17 +9,16 @@ public class EmployeeWageBuilder {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Employee Wage Computation");
-		empWage();
+		empWage("Infosys", 21, 20, 100);
+		empWage("Tesala", 22, 25, 70);
+		empWage("Reliance", 27, 23, 64);
 	}
 
-	public static void empWage() {
-		int workingDay = 20;
+	public static void empWage(String company, int empRatePerHr, int numWorkingDays, int maxHrs) {
 		int empHrs = 0;
-		int empwage = 0;
-		int totalWage = 0;
-		int totalWorkingHrs = 0;
+		int totalEmpHrs = 8;
 		int totalWorkingDays = 0;
-		while (totalWorkingHrs <= MAX_WORKING_HRS && totalWorkingHrs < MAX_WORKING_DAYS) {
+		while (totalEmpHrs <= MAX_WORKING_HRS && totalWorkingDays < MAX_WORKING_DAYS) {
 			totalWorkingDays++;
 			int empcheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empcheck) {
@@ -35,13 +34,13 @@ public class EmployeeWageBuilder {
 				System.out.println("Employee is Absent");
 				empHrs = 0;
 			}
-			totalWorkingHrs += empHrs;
-			empwage = empHrs * EMP_RATE_PER_HOUR;
-			System.out.println(" Employee Wage = " + empwage);
-			totalWage = totalWage + empwage;
-			System.out.println("Total working hrs = " + totalWorkingHrs);
-			System.out.println("Total Emp wage = " + totalWage);
-
+			totalEmpHrs += empHrs;
 		}
+		int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+		System.out.println(company + " company Total Daily Wage for days " + totalWorkingDays + " and hours "
+				+ totalEmpHrs + " is: " + totalEmpWage);
+
+		return;
+
 	}
 }
