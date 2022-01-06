@@ -41,6 +41,7 @@ public class EmployeeWageBuilder {
 			totalWage = totalWage + empwage;
 			System.out.println("Total working hrs = " + totalWorkingHrs);
 			System.out.println("Total Emp wage = " + totalWage);
+
 		}
 	}
 }
