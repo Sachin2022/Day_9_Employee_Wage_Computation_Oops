@@ -11,24 +11,29 @@ public class EmployeeWageBuilder {
 	}
 
 	public static void empWage() {
+		int workingDay = 20;
 		int empHrs = 0;
 		int empwage = 0;
-		int empcheck = (int) Math.floor(Math.random() * 10) % 3;
-		switch (empcheck) {
-		case 1:
-			System.out.println("Employee is Full time ");
-			empHrs = 8;
-			break;
-		case 2:
-			System.out.println("Employee is Part time ");
-			empHrs = 4;
-			break;
-		default:
-			System.out.println("Employee is Absent");
-			empHrs = 0;
+		int totalWage = 0;
+		for (int i = 1; i <= workingDay; i++) {
+			int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+			switch (empcheck) {
+			case 1:
+				System.out.println("Employee is Full time ");
+				empHrs = 8;
+				break;
+			case 2:
+				System.out.println("Employee is Part time ");
+				empHrs = 4;
+				break;
+			default:
+				System.out.println("Employee is Absent");
+				empHrs = 0;
+			}
+			empwage = empHrs * EMP_RATE_PER_HOUR;
+			System.out.println("Day " + i + " Employee Wage = " + empwage);
+			totalWage = totalWage + empwage;
 		}
-		empwage = empHrs * EMP_RATE_PER_HOUR;
-		System.out.println("Emp wage = " + empwage);
-
+		System.out.println("Total Emp wage = " + totalWage);
 	}
 }
